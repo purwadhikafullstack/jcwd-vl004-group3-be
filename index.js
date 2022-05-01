@@ -27,6 +27,8 @@ const {
   productRouters,
   categoryRouters,
   warehouseRouters,
+  adminRouters,
+  userRouters,
 } = require("./routers");
 
 app.get("/", (req, res) => {
@@ -36,6 +38,8 @@ app.get("/", (req, res) => {
 app.use("/product", productRouters);
 app.use("/category", categoryRouters);
 app.use("/warehouse", warehouseRouters);
+app.use("/admin", adminRouters);
+app.use("/user", userRouters);
 
 app.listen(PORT, () =>
   console.log(`Ready to serve connections on port ${PORT}`.green)
