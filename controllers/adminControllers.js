@@ -21,7 +21,7 @@ module.exports = {
       });
 
       if (account === null) {
-        res.status(400).send("Invalid credentials.");
+        res.status(403).send("Invalid credentials.");
       } else {
         //@ts-ignore
         const { id, email, password } = account;

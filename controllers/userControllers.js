@@ -22,14 +22,14 @@ module.exports = {
       });
 
       if (account === null) {
-        res.status(400).send("Invalid credentials.");
+        res.status(403).send("Invalid credentials.");
         //@ts-ignore
       } else if (!account.is_verified) {
-        res.status(400).send("Account has not been verified.");
+        res.status(403).send("Account has not been verified.");
         //@ts-ignore
       } else if (!account.is_active) {
         res
-          .status(400)
+          .status(403)
           .send("Account has been deactivated, please contact admin.");
       } else {
         //@ts-ignore
