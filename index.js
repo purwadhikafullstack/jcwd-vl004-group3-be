@@ -49,9 +49,11 @@ app.listen(PORT, () =>
   try {
     await sequelize.authenticate();
     console.log("sequelize:".green + " connected to database.");
-    // await sequelize.sync({ force: true });
+    // await sequelize.sync({ alter: true });
     // console.log(
-    //   "sequelize:".green + " tables synced successfully. " + "(force: true)".red
+    //   "sequelize:".green +
+    //     " tables synced successfully. " +
+    //     "(alter: true)".yellow
     // );
   } catch (error) {
     console.error(error);
