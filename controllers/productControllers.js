@@ -19,7 +19,10 @@ module.exports = {
       const products = await Product.findAll({
         offset: +req.params.from,
         limit: +req.params.limit,
-        include: { all: true },
+        include: [
+          { model: Category, as: "Category" },
+          { model: Stock, as: "Stocks" },
+        ],
       });
       res.status(200).send(products);
     } catch (error) {

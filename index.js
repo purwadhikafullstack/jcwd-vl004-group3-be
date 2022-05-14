@@ -27,6 +27,8 @@ const {
   productRouters,
   categoryRouters,
   warehouseRouters,
+  adminRouters,
+  userRouters,
 } = require("./routers");
 
 app.get("/", (req, res) => {
@@ -36,6 +38,8 @@ app.get("/", (req, res) => {
 app.use("/product", productRouters);
 app.use("/category", categoryRouters);
 app.use("/warehouse", warehouseRouters);
+app.use("/admin", adminRouters);
+app.use("/user", userRouters);
 
 app.listen(PORT, () =>
   console.log(`Ready to serve connections on port ${PORT}`.green)
@@ -45,9 +49,11 @@ app.listen(PORT, () =>
   try {
     await sequelize.authenticate();
     console.log("sequelize:".green + " connected to database.");
-    // await sequelize.sync({ force: true });
+    // await sequelize.sync({ alter: true });
     // console.log(
-    //   "sequelize:".green + " tables synced successfully. " + "(force: true)".red
+    //   "sequelize:".green +
+    //     " tables synced successfully. " +
+    //     "(alter: true)".yellow
     // );
   } catch (error) {
     console.error(error);

@@ -28,7 +28,7 @@ module.exports = {
   },
   delete: async (req, res) => {
     try {
-      const remove = await Category.destroy({
+      await Category.destroy({
         where: {
           id: +req.params.id,
         },
@@ -41,7 +41,7 @@ module.exports = {
   },
   edit: async (req, res) => {
     try {
-      const update = await Category.update(
+      await Category.update(
         { category: req.body.category },
         { where: { id: +req.params.id } }
       );
